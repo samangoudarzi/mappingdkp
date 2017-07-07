@@ -27,10 +27,6 @@ var fileInput = document.getElementById("csv"),
         reader.onload = function () {
             document.getElementById('ratings').innerHTML = reader.result;
         };
-    };
-
-fileInput.addEventListener('change', readFile);
-$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=analytics.csv&callback=?', function (csv) {
 
     Highcharts.chart('container', {
 

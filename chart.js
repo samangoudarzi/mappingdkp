@@ -1,4 +1,3 @@
-//js for IDS Journals' Ranking Chart - July 7 2017//
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/data.js"></script>
@@ -7,23 +6,17 @@
 <!-- Additional files for the Highslide popup effect -->
 <script src="https://www.highcharts.com/media/com_demo/js/highslide-full.min.js"></script>
 <script src="https://www.highcharts.com/media/com_demo/js/highslide.config.js" charset="utf-8"></script>
-<link rel="stylesheet" type="text/css"
-
-
-
-<script src="https://www.highcharts.com/media/com_demo/js/highslide.config.js" charset="utf-8"></script>
 <link rel="stylesheet" type="text/css" href="https://www.highcharts.com/media/com_demo/css/highslide.css" />
 
-<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id="container" style="min-width: 310px; height: 800px; margin: 0 auto"></div>
 
+
+// Get the CSV and create the chart
 $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=analytics.csv&callback=?', function (csv) {
 
     Highcharts.chart('container', {
 
-        data: {
-            csv: csv
-        },
-
+        
         title: {
             text: 'Daily visits at www.highcharts.com'
         },
@@ -117,3 +110,6 @@ $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=analytics.
         }, {
             name: 'New visitors'
         }]
+    });
+});
+

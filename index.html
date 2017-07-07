@@ -19,6 +19,17 @@
 
 <script>
 // Get the CSV and create the chart
+    
+var fileInput = document.getElementById("csv"),
+
+    readFile = function () {
+        var reader = new FileReader();
+        reader.onload = function () {
+            document.getElementById('ratings').innerHTML = reader.result;
+        };
+    };
+
+fileInput.addEventListener('change', readFile);
 $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=analytics.csv&callback=?', function (csv) {
 
     Highcharts.chart('container', {

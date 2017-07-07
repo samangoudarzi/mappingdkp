@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- Add these JavaScript inclusions in the head of your page -->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="https://code.highcharts.com/highcharts.js"></script>
         <script src="https://code.highcharts.com/modules/data.js"></script>
@@ -15,18 +16,29 @@
         
         <div id="container" style="min-width: 310px; height: 800px; margin: 0 auto"></div>
      
-   
+ 
+      
+      <!-- Add the JavaScript to initialize the chart on document ready -->
+      <script type="text/javascript">
 
-<script>
-// Get the CSV and create the chart
-    
-var fileInput = document.getElementById("csv"),
+         $(document).ready(function() {
 
-    readFile = function () {
-        var reader = new FileReader();
-        reader.onload = function () {
-            document.getElementById('ratings').innerHTML = reader.result;
-        };
+        var c = [];
+        var d = [];
+
+        $.get('ratings.csv', function(data) {
+            var lines = data.split('\n');
+            $.each(lines, function(lineNo, line) {
+                var items = line.split(',');
+                c.push(items[0]);
+                d.push(parseInt(items[1]));
+            });
+            var options = {
+                    chart: {
+                        renderTo: 'chart',
+                        defaultSeriesType: 'line'
+                    },
+                    
 
     Highcharts.chart('container', {
 

@@ -100,9 +100,8 @@
             useHTML: true,
             formatter: function() {
               point = this.point;
-              // EDIT tooltip text labels below to match your data
               html = '<table>';
-              html += '<tr><th colspan="2"><h5>'+ point.name + '</h5></th></tr>';
+              html += '<tr><th colspan="2"><h4>'+ point.name + '</h4></th></tr>';
               html += '</table>';
               return html;
             },

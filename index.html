@@ -66,10 +66,29 @@
             floating: true,
             borderWidth: 0
         },
+          
+        tooltip: {
+            shared: true,
+            crosshairs: true
+        },
         plotOptions: {
-            scatter: {
+            series: {
+                cursor: 'pointer',
+                point: {
+                    events: {
+                        click: function (e) {
+                            hs.htmlExpand(null, {
+                                pageOrigin: {
+                                    x: e.pageX || e.clientX,
+                                    y: e.pageY || e.clientY
+                                },
+                                headingText: this.series.name,
+                            });
+                        }
+                    }
+                },
                 marker: {
-                    radius: 5,
+                    lineWidth: 1,
                     states: {
                         hover: {
                           enabled: true,
@@ -79,6 +98,7 @@
                 stickyTracking: false,
             }
         },
+        
         tooltip: {
             useHTML: true,
             formatter: function() {

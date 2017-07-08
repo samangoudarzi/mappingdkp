@@ -92,15 +92,8 @@
         },
         
         tooltip: {
-            crosshairs: true,
-            useHTML: true,
-            formatter: function() {
-              point = this.point;
-              html = '<table>';
-              html += '<tr><th colspan="2"><h5>'+ point.name + '</h5></th></tr>';
-              html += '</table>';
-              return html;
-            },
+            headerFormat: '<b>{series.name}</b><br/>',
+            pointFormat: '{point.y}',
             followPointer: true,
             hideDelay: 50
         },

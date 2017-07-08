@@ -63,11 +63,6 @@
             floating: true,
             borderWidth: 0
         },
-          
-        tooltip: {
-            shared: true,
-            crosshairs: true
-        },
         plotOptions: {
             series: {
                 cursor: 'pointer',
@@ -97,12 +92,11 @@
         },
         
         tooltip: {
+            crosshairs: true,
             useHTML: true,
             formatter: function() {
               point = this.point;
-              html = '<table>';
-              html += '<tr><th colspan="2"><h4>'+ point.name + '</h4></th></tr>';
-              html += '</table>';
+              html += '<tr><th colspan="2"><h5>'+ point.name + '</h5></th></tr>';
               return html;
             },
             followPointer: true,

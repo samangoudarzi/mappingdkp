@@ -96,7 +96,9 @@
             useHTML: true,
             formatter: function() {
               point = this.point;
+              html = '<table>';
               html += '<tr><th colspan="2"><h5>'+ point.name + '</h5></th></tr>';
+              html += '</table>';
               return html;
             },
             followPointer: true,

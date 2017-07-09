@@ -87,7 +87,14 @@ $.get('ratings.csv', function(data) {
     });
     
     // Create the chart
-    var chart = new Highcharts.Chart(options);
+    var chart = new Highcharts.Chart('container', {
+          chart: {
+            type: 'line',
+            zoomType: 'xy',
+            zoomType: 'xy',
+           renderTo: 'container',
+         defaultSeriesType: 'column'
+          },);
 });
     
   

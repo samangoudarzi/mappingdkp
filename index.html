@@ -5,97 +5,104 @@
         <meta charset="utf-8">
         <!--load jQuery-->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
-        <!--load Highcharts-->
-        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <!--load js & highcharts-->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
         <script src="https://code.highcharts.com/highcharts-more.js"></script>
         <script src="https://code.highcharts.com/modules/data.js"></script>
         <script src="https://code.highcharts.com/modules/exporting.js"></script>    
     </head>
-
 <body>
   <div id="space" style="width:100%; height:150px;"></div>
   <div id="container" style="width:100%; height:450px;"></div>
-  <script>
-  var options = {
-    chart: {
-        renderTo: 'container',
-        defaultSeriesType: 'line'
-    },
-    title: {
-        text: 'IDS'
-    },
-    xAxis: {
-         title: {
-             text: 'Year',  // x-axis title
-             labels: {
-                 aligh: 'left',
-                 format: '{value:.,0f}'
-             }
-    },
-    yAxis: {
-        title: {
-             text: 'Reuters Impact Factor'   // EDIT to insert vertical y-axis label
-           }, 
-           labels:{
-               align: 'right', 
-               format: '{value:.,0f}'
-           }    
-    },
-      legend: {
-             align: 'left',
-             verticalAlign: 'top',
-             y: 20,
-             floating: true,
-             borderWidth: 0
-         }
-    }
-};
-        
-$.get('ratings.csv', function(data) {
-    // Split the lines
-    var lines = data.split('\n');
-    
-    // Iterate over the lines and add categories or series
-    $.each(lines, function(lineNo, line) {
-        var items = line.split(',');
-        
-        // header line containes categories
-        if (lineNo == 0) {
-            $.each(items, function(itemNo, item) {
-                if (itemNo > 0) options.xAxis.categories.push(item);
-            });
-        }
-        
-        // the rest of the lines contain data with their name in the first 
-        // position
-        else {
-            var series = {
-                data: []
-            };
-            $.each(items, function(itemNo, item) {
-                if (itemNo == 0) {
-                    series.name = item;
-                } else {
-                    series.data.push(parseFloat(item));
-                }
-            });
-            
-            options.series.push(series);
-    
-        }
-        
-    });
-    
-    // Create the chart
-    var chart = new Highcharts.Chart('container', {
-          chart: {
-            type: 'line',
-            zoomType: 'xy',
-            zoomType: 'xy',
-           renderTo: 'container',
-         defaultSeriesType: 'column'
-          },);
-});
+  <script type="text/javascript">
+      $(document).ready(function() {
+			var options = {
+				chart: {
+					renderTo: 'container',
+					type: 'line'
+				},
+				title: {
+					text: 'IDS'
+				},
+				xAxis: {
+					categories: []
+				},
+				yAxis: {
+					title: {
+						text: 'Units'
+					}
+				},
+				series: []
+			};
+			
+			
+		$(document).ready(function() {
+			
+
+			var options = {
+				chart: {
+					renderTo: 'container',
+					type: 'column'
+				},
+				title: {
+					text: 'Fruit Consumption'
+				},
+				xAxis: {
+					categories: []
+				},
+				yAxis: {
+					title: {
+						text: 'Units'
+					}
+				},
+				series: []
+			};
+			
+			/*
+			 Load the data from the CSV file. This is the contents of the file:
+			 
+				Apples,Pears,Oranges,Bananas,Plums
+				John,8,4,6,5
+				Jane,3,4,2,3
+				Joe,86,76,79,77
+				Janet,3,16,13,15
+				
+			 */ 
+			$.get('ratings.csv', function(data) {
+				// Split the lines
+				var lines = data.split('\n');
+				$.each(lines, function(lineNo, line) {
+					var items = line.split(',');
+					
+					// header line containes categories
+					if (lineNo == 0) {
+						$.each(items, function(itemNo, item) {
+							if (itemNo > 0) options.xAxis.categories.push(item);
+						});
+					}
+					
+					// the rest of the lines contain data with their name in the first position
+					else {
+						var series = { 
+							data: []
+						};
+						$.each(items, function(itemNo, item) {
+							if (itemNo == 0) {
+								series.name = item;
+							} else {
+								series.data.push(parseFloat(item));
+							}
+						});
+						
+						options.series.push(series);
+
+					}
+					
+				});
+				
+				var chart = new Highcharts.Chart(options);
+			});
     
   
   </script>

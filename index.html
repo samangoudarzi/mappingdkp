@@ -48,16 +48,17 @@
              floating: true,
              borderWidth: 0
          },
-    series: [], 
+        
     plotOptions: {
     line: {
         dataLabels: {
             enabled: true
         }
     }
-},
+}
 };
-  $.get('ratings.csv', function(data) {
+        
+$.get('ratings.csv', function(data) {
     // Split the lines
     var lines = data.split('\n');
     
@@ -87,96 +88,16 @@
             });
             
             options.series.push(series);
+    
         }
         
     });
     
     // Create the chart
-    var chart = new Highcharts.Chart(options), 
-        
-        title: {
-          text: 'IDS Journals\' Reuters Impact Factor'  // chart title
-        },
-        legend: {
-            align: 'left',
-            verticalAlign: 'top',
-            y: 20,
-            floating: true,
-            borderWidth: 0
-        },
-        plotOptions: {
-            series: {
-                cursor: 'pointer',
-                point: {
-                    events: {
-                        click: function (e) {
-                            hs.htmlExpand(null, {
-                                pageOrigin: {
-                                    x: e.pageX || e.clientX,
-                                    y: e.pageY || e.clientY
-                                },
-                                headingText: this.series.name,
-                            });
-                        }
-                    }
-                },
-                marker: {
-                    lineWidth: 1,
-                    states: {
-                        hover: {
-                          enable: true,
-                        }
-                    }
-                },
-                stickyTracking: false,
-            }
-        },
-        
-        tooltip: {
-            headerFormat: '<b>{series.name}</b><br/>',
-            pointFormat: '{point.y}',
-            followPointer: true,
-            hideDelay: 50
-        },
-        credits: {
-          enabled: true,
-          text: 'View Highcharts.com template by DataVizForAll.org',
-          href: 'https://www.datavizforall.org/highcharts'
-        },
-      });
-    });
-  });
+    var chart = new Highcharts.Chart(options);
+});
+    
   
-
-  // Customize colors of series
-  function changeSeriesColors(data) {
-    colors = {
-      'SampleCategory1': 'rgba(100, 0, 0, 0.3)', // to add transparency, define colors in rgba() model, where the last number is between 0 and 1 (opacity)
-      'SampleCategory2': 'red'
-    }
-    for (i = 0; i < data.series.length; i++) {
-      data.series[i].color = colors[data.series[i].name] || 'rgba(51, 102, 255, 0.5)';
-    }
-  }
-  // Customize markers of scatter series. Possible options are:
-  // 'circle', 'square', 'diamond', 'triangle', 'triangle-down'
-  function changeSeriesMarkers(data) {
-    markers = {
-      'SampleCategory1': 'circle',
-      'SampleCategory2': 'triangle'
-    }
-    for (i = 0; i < data.series.length; i++) {
-      data.series[i].marker = {symbol: markers[data.series[i].name] || 'circle'};
-    }
-  }
-  // Returns a string that contains digits of val split by comma evey 3 positions
-  // Example: 12345678 -> "12,345,678"
-  function comma(val) {
-      while (/(\d+)(\d{3})/.test(val.toString())) {
-          val = val.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
-      }
-      return val;
-  }
   </script>
 </body>
 </html>

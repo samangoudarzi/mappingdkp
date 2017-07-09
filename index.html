@@ -16,15 +16,44 @@
   <div id="space" style="width:100%; height:150px;"></div>
   <div id="container" style="width:100%; height:450px;"></div>
   <script>
-  $(function() {
-    $.get('ratings.csv', function(csv) {     // enter csv file name
-      Highcharts.chart('container', {
-        chart: {
-          type: 'line',
-          zoomType: 'xy',
-          renderTo: 'container',
-          defaultSeriesType: 'column'
-        },
+  $.get('ratings.csv', function(data) {
+    // Split the lines
+    var lines = data.split('\n');
+    
+    // Iterate over the lines and add categories or series
+    $.each(lines, function(lineNo, line) {
+        var items = line.split(',');
+        
+        // header line containes categories
+        if (lineNo == 0) {
+            $.each(items, function(itemNo, item) {
+                if (itemNo > 0) options.xAxis.categories.push(item);
+            });
+        }
+        
+        // the rest of the lines contain data with their name in the first 
+        // position
+        else {
+            var series = {
+                data: []
+            };
+            $.each(items, function(itemNo, item) {
+                if (itemNo == 0) {
+                    series.name = item;
+                } else {
+                    series.data.push(parseFloat(item));
+                }
+            });
+            
+            options.series.push(series);
+    
+        }
+        
+    });
+    
+    // Create the chart
+    var chart = new Highcharts.Chart(options), 
+        
         title: {
           text: 'IDS Journals\' Reuters Impact Factor'  // chart title
         },
@@ -109,26 +138,7 @@
     });
   });
   
- // Split data based on 'category' property; needed for correct legend display
-  function categoriesIntoSeries(data) {
-    rows = data.series[0].data;
-    data.series = [];
-    for (i = 0; i < rows.length; i++) {
-      cat = rows[i].category;
-      catExists = false;
-      for (j = 0; j < data.series.length; j++) {
-        if (data.series[j].name == cat) {
-          // Add a data point to existing series
-          data.series[j].data.push(rows[i]);
-          catExists = true;
-        }
-      }
-      if (!catExists) {
-        // When category is encountered for the first time, create a series
-        data.series.push({name: cat, data: [rows[i]]})
-      }
-    }
-  }
+
   // Customize colors of series
   function changeSeriesColors(data) {
     colors = {

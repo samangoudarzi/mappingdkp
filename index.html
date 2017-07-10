@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>International Development tStudies Journal Ratings</title>
+        <title>International Development Studies Journal Ratings</title>
         <meta charset="utf-8">
         <!--load jQuery-->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
@@ -31,7 +31,7 @@
           // data column headers (x, y, name...) must match column numbers (0, 1, 2...). Optional: category: 3
           seriesMapping: [{x: 0, y: 1, category: 2, sub: 3}],
           complete: function(data) {
-            categoriesIntoSeries(data);
+            categoriesIntoSerie(data);
             changeSeriesColors(data);
             changeSeriesMarkers(data)
           }
@@ -84,7 +84,7 @@
                   events:{
                         click: function (event, i) {
                             location.href = 'https://samangoudarzi.github.io/mappingdkp_' +
-                            this.options.label;
+                            this.options.name;
                   }
               },
                 stickyTracking: false,
@@ -107,7 +107,7 @@
   });
   
  // Split data based on 'category' property; needed for correct legend display
-  function categoriesIntoSeries(data) {
+  function categoriesIntoSerie(data) {
     rows = data.series[0].data;
     data.series = [];
     for (i = 0; i < rows.length; i++) {

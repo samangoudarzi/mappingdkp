@@ -36,9 +36,6 @@
             changeSeriesMarkers(data)
           }
         },
-        legend: {
-          enabled: true  // EDIT to true if using more than one category, color, shape
-        },
         yAxis: {
           title: {
             text: 'Reuters Impact Factor'   // EDIT to insert vertical y-axis label
@@ -49,11 +46,12 @@
           }    
         },
         legend: {
+            enabled: true,
             align: 'center',
             verticalAlign: 'top',
             y: 20,
             floating: true,
-            borderWidth: 0
+            borderWidth: 10
         },
         plotOptions: {
             series: {

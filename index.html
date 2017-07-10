@@ -127,21 +127,21 @@
     }
    }
       function subIntoKey(data){
-          rows = data.series[3].data;
-          data.series = [];
+          rows = data[0];
+          data = [];
           for (i = 0; i < rows.length; i++) {
               subd = rows[i].sub;
               subdExists = false;
-              for (j = 0; j < data.series.length; j++) {
-                  if (data.series[j].key == subd) {
+              for (j = 0; j < data.length; j++) {
+                  if (data[j].key == subd) {
           //Add a data point to existing series
-                      data.series[j].data.push(rows[i]);
+                      data[j].data.push(rows[i]);
                       subdExists = true;
         }
       }
         if (!subdExists) {
         // When category is encountered for the first time, create a series
-        data.series.push({key: subd, data: [rows[i]]})
+        data.push({key: subd, data: [rows[i]]})
       }
     }
    }

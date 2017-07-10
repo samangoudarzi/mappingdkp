@@ -126,6 +126,18 @@
         data.series.push({name: cat, data: [rows[i]]})
       }
     }
+      for (j = 0; j < data.series.length; j++) {
+        if (data.series[j].labl == sub) {
+          //Add a data point to existing series
+          data.series[j].data.push(rows[i]);
+          subExists = true;
+        }
+      }
+      if (!subExists) {
+        // When category is encountered for the first time, create a series
+        data.series.push({label: sub, data: [rows[i]]})
+      }
+    }
   }
   // Customize colors of series
   function changeSeriesColors(data) {

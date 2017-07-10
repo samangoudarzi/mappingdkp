@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>International Development Studies Journal Ratings</title>
+        <title>International Development tStudies Journal Ratings</title>
         <meta charset="utf-8">
         <!--load jQuery-->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
@@ -32,7 +32,7 @@
           seriesMapping: [{x: 0, y: 1, category: 2, sub: 3}],
           complete: function(data) {
             categoriesIntoSeries(data);
-          //  readSubDirectory(data);
+            subsIntoSubdirectories(data);
             changeSeriesColors(data);
             changeSeriesMarkers(data)
           }
@@ -127,25 +127,17 @@
       }
     }
   }
-  function readSubDirectory(data) {
-      rows = data.subdirectory[0].data;
-      data.subdirectory = [];
-      for (i = 0; i < rows.length; i++) {
-          sub_name = rows[i].sub;
-          subExists = false;
-          for (j = 0; j < data.subdirectory.length; j++) {
-        if (data.series[j].name == sub_name) {
-          // Add a data point to existing series
-          data.subdirectory[j].data.push(rows[i]);
-          subExists = true;
-        }
-      }
-      if (!subExists) {
-        // When category is encountered for the first time, create a series
-      data.subdirectory.push({name: sub_name, data: [rows[i]]})
-      }
-    }
-  }
+ function subsIntoSubdirectories(data) {
+     rows = data.subdirectory[0].data;
+     data.subdirectory = [];
+     for (i = 0; i < rows.length; i++) {
+         subs = rows[i].sub;
+         subExists = false;
+     if (!subExists) {
+         data.subdirectory.push({name: subs, data [rows[i]]})
+     }
+   }
+ }
   // Customize colors of series
   function changeSeriesColors(data) {
     colors = {

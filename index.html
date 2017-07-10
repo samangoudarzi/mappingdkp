@@ -31,8 +31,8 @@
           // data column headers (x, y, name...) must match column numbers (0, 1, 2...). Optional: category: 3
           seriesMapping: [{x: 0, y: 1, category: 2, sub: 3}],
           complete: function(data) {
-            categoriesIntoSeries(data);
             subIntoKey(data);
+            categoriesIntoSeries(data);
             changeSeriesColors(data);
             changeSeriesMarkers(data)
           }

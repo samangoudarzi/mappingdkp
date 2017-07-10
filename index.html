@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>International yDevelopment Studies Journal Ratings</title>
+        <title>International Development Studies Journal Ratings</title>
         <meta charset="utf-8">
         <!--load jQuery-->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
@@ -32,7 +32,6 @@
           seriesMapping: [{x: 0, y: 1, category: 2, sub: 3}],
           complete: function(data) {
             categoriesIntoSeries(data);
-            subIntoKeys(data);
             changeSeriesColors(data);
             changeSeriesMarkers(data)
           }
@@ -60,8 +59,6 @@
         },
         plotOptions: {
             series: {
-                keys: {
-                },
                 cursor: 'pointer',
                 point: {
                     events: {
@@ -127,27 +124,7 @@
         data.series.push({name: cat, data: [rows[i]]})
       }
     }
-   }
-    function subIntoKeys(data) {
-    rows = data.keys[0].data;
-    data.keys = [];
-    for (i = 0; i < rows.length; i++) {
-      cat = rows[i].sub;
-      catExists = false;
-      for (j = 0; j < data.keys.length; j++) {
-        if (data.keys[j].key == cat) {
-          //Add a data point to existing series
-          data.keys[j].data.push(rows[i]);
-          catExists = true;
-        }
-      }
-        if (!catExists) {
-        // When category is encountered for the first time, create a series
-        data.keys.push({key: cat, data: [rows[i]]})
-      }
-    }
-   }  
-		
+   }		
   // Customize colors of series
   function changeSeriesColors(data) {
     colors = {

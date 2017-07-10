@@ -68,7 +68,7 @@
                                     x: e.pageX || e.clientX,
                                     y: e.pageY || e.clientY
                                 },
-                                headingText: this.series,
+                                headingText: this.series.category,
                             });
                         }
                     }
@@ -84,7 +84,7 @@
                   events:{
                         click: function (event, i) {
                             location.href = 'https://samangoudarzi.github.io/mappingdkp_' +
-                            this.options.sub;
+                            this.options.series;
                   }
               },
                 stickyTracking: false,

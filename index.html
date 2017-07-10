@@ -128,13 +128,13 @@
     }
    }
     function subIntoKeys(data) {
-    rows = data.series[0].data;
-    data.series = [];
+    rows = data.keys[0].data;
+    data.keys = [];
     for (i = 0; i < rows.length; i++) {
       cat = rows[i].sub;
       catExists = false;
-      for (j = 0; j < data.series.length; j++) {
-        if (data.series[j].key == cat) {
+      for (j = 0; j < data.keys.length; j++) {
+        if (data.keys[j].key == cat) {
           //Add a data point to existing series
           data.keys[j].data.push(rows[i]);
           catExists = true;

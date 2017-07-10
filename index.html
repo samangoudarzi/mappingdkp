@@ -115,7 +115,7 @@
       cat = rows[i].sub;
       catExists = false;
       for (j = 0; j < data.series.length; j++) {
-        if (data.series[j].name == cat) {
+        if (data.series[j].label == cat) {
           //Add a data point to existing series
           data.series[j].data.push(rows[i]);
           catExists = true;
@@ -123,7 +123,7 @@
       }
       if (!catExists) {
         // When category is encountered for the first time, create a series
-        data.series.push({name: cat, data: [rows[i]]})
+        data.series.push({label: cat, data: [rows[i]]})
       }
     }
   }
@@ -135,7 +135,7 @@
       cat = rows[i].category;
       catExists = false;
       for (j = 0; j < data.series.length; j++) {
-        if (data.series[j].label == cat) {
+        if (data.series[j].name == cat) {
           //Add a data point to existing series
           data.series[j].data.push(rows[i]);
           catExists = true;
@@ -143,7 +143,7 @@
       }
       if (!catExists) {
         // When category is encountered for the first time, create a series
-        data.series.push({label: cat, data: [rows[i]]})
+        data.series.push({name: cat, data: [rows[i]]})
       }
     }
   }

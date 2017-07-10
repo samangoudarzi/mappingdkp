@@ -119,8 +119,11 @@
   // Customize colors of series
   function changeSeriesColors(data) {
     colors = {
-      'SampleCategory1': 'rgba(100, 0, 0, 0.3)', // to add transparency, define colors in rgba() model, where the last number is between 0 and 1 (opacity)
-      'Journal of Peasant Studies': 'red'
+      'Development and Change': 'rgba(1, 36, 29, 0.3)', // to add transparency, define colors in rgba() model, where the last number is between 0 and 1 (opacity)
+      'Journal of Development Studies': 'rgba(100, 0, 0, 0.3)', 
+      'Journal of Peasant Studies': 'red', 
+      'Third World Quarterly': 'rgba(100, 0, 0, 0.3)',
+      'World Development': 'rgba(100, 0, 0, 0.3)'
     }
     for (i = 0; i < data.series.length; i++) {
       data.series[i].color = colors[data.series[i].name] || 'rgba(51, 102, 255, 0.5)';

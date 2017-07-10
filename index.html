@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>International Development tStudies Journal Ratings</title>
+        <title>International Development Studies Journal Ratings</title>
         <meta charset="utf-8">
         <!--load jQuery-->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
@@ -32,8 +32,8 @@
           seriesMapping: [{x: 0, y: 1, category: 2, sub: 3}],
           complete: function(data) {
             categoriesIntoSeries(data);
+            readSubDirectory(data);
             changeSeriesColors(data);
-          //  readsub(data);
             changeSeriesMarkers(data)
           }
         },
@@ -127,18 +127,18 @@
       }
     }
   }
- // function readsub(data) {
-  //  rows = data.sub[0].data;
-  //  data.sub = [];
-   // for (i = 0; i < rows.length; i++) {
-  //    sub_name = rows[i].sub;
-   //   subExists = false;
-  //    if (!subExists) {
+  function readSubDirectory(data) {
+      rows = data.subdirectory[0].data;
+      data.subdirectory = [];
+      for (i = 0; i < rows.length; i++) {
+          sub_name = rows[i].sub;
+          subExists = false;
+      if (!subExists) {
         // When category is encountered for the first time, create a series
-   //     data.series.push({name: sub_name, data: [rows[i]]})
-   //   }
-  //  }
-//  }
+      data.subdirectory.push({name: sub_name, data: [rows[i]]})
+      }
+    }
+  }
   // Customize colors of series
   function changeSeriesColors(data) {
     colors = {

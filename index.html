@@ -29,7 +29,7 @@
         data: {
           csv: csv,
           // data column headers (x, y, name...) must match column numbers (0, 1, 2...). Optional: category: 3
-          seriesMapping: [{x: 0, y: 1, category: 2, subdirectory: 3}],
+          seriesMapping: [{x: 0, y: 1, category: 2, name: 3}],
           complete: function(data) {
             categoriesIntoSeries(data);
             changeSeriesColors(data);
@@ -84,7 +84,7 @@
                   events:{
                         click: function (event, i) {
                             location.href = 'https://samangoudarzi.github.io/mappingdkp_' +
-                            this.options.sub;
+                            this.options.name;
                   }
               },
                 stickyTracking: false,
@@ -112,30 +112,12 @@
     for (i = 0; i < rows.length; i++) {
       cat = rows[i].category;
       catExists = false;
-      sub = rows[i].subdirectory;
-      subExists = false;
       for (j = 0; j < data.series.length; j++) {
         if (data.series[j].name == cat) {
           //Add a data point to existing series
           data.series[j].data.push(rows[i]);
           catExists = true;
         }
-      }
-      if (!catExists) {
-        // When category is encountered for the first time, create a series
-        data.series.push({name: cat, data: [rows[i]]})
-      }
-    }
-      for (j = 0; j < data.series.length; j++) {
-        if (data.series[j].label == sub) {
-          //Add a data point to existing series
-          data.series[j].data.push(rows[i]);
-          subExists = true;
-        }
-      }
-      if (!subExists) {
-        // When category is encountered for the first time, create a series
-        data.series.push({label: sub, data: [rows[i]]})
       }
     }
   // Customize colors of series

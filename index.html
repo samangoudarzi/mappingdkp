@@ -128,21 +128,21 @@
     }
    }
     function subIntoKeys(data) {
-    rows = data.keys[0].data;
-    data.keys = [];
+    rows = keys.series[0].data;
+    keys.series = [];
     for (i = 0; i < rows.length; i++) {
       cat = rows[i].sub;
       catExists = false;
-      for (j = 0; j < data.keys.length; j++) {
-        if (data.keys[j].key == cat) {
+      for (j = 0; j < keys.series.length; j++) {
+        if (keys.series[j].key == cat) {
           //Add a data point to existing series
-          data.keys[j].data.push(rows[i]);
+          keys.series[j].data.push(rows[i]);
           catExists = true;
         }
       }
         if (!catExists) {
         // When category is encountered for the first time, create a series
-        data.keys.push({key: cat, data: [rows[i]]})
+        keys.series.push({key: cat, data: [rows[i]]})
       }
     }
    }

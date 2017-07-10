@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>International Development Studie Journal Ratings</title>
+        <title>International Development Studies Journal Ratings</title>
         <meta charset="utf-8">
         <!--load jQuery-->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
@@ -58,14 +58,14 @@
             margin: 20
         },
         plotOptions: {
-            series: {
-                cursor: 'pointer',
-                point: {
-                    events:{
+            events:{
                   click: function (event, i) {
                      alert(event.point.name);
                   }
-                  },
+              },
+            series: {
+                cursor: 'pointer',
+                point: {
                     events: {
                         click: function (e) {
                             hs.htmlExpand(null, {

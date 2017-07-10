@@ -125,6 +125,15 @@
         // When category is encountered for the first time, create a series
         data.series.push({name: cat, data: [rows[i]]})
       }
+      if (data.series[j].label == cat) {
+          //Add a data point to existing series
+          data.series[j].data.push(rows[i]);
+          catExists = true;
+        }
+       if (!catExists) {
+        // When category is encountered for the first time, create a series
+        data.series.push({name: cat, data: [rows[i]]})
+       }
     }
   }
   // Customize colors of series

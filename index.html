@@ -127,18 +127,18 @@
       }
     }
   }
-  function readsub(data) {
-    rows = data.sub[0].data;
-    data.sub = [];
-    for (i = 0; i < rows.length; i++) {
-      sub_name = rows[i].sub;
-      subExists = false;
-      if (!subExists) {
+ // function readsub(data) {
+  //  rows = data.sub[0].data;
+  //  data.sub = [];
+   // for (i = 0; i < rows.length; i++) {
+  //    sub_name = rows[i].sub;
+   //   subExists = false;
+  //    if (!subExists) {
         // When category is encountered for the first time, create a series
-        data.series.push({name: sub_name, data: [rows[i]]})
-      }
-    }
-  }
+   //     data.series.push({name: sub_name, data: [rows[i]]})
+   //   }
+  //  }
+//  }
   // Customize colors of series
   function changeSeriesColors(data) {
     colors = {

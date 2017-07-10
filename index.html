@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>International Development Studies Journal Ratings</title>
+        <title>International Development tStudies Journal Ratings</title>
         <meta charset="utf-8">
         <!--load jQuery-->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
@@ -133,6 +133,13 @@
       for (i = 0; i < rows.length; i++) {
           sub_name = rows[i].sub;
           subExists = false;
+          for (j = 0; j < data.subdirectory.length; j++) {
+        if (data.series[j].name == sub_name) {
+          // Add a data point to existing series
+          data.subdirectory[j].data.push(rows[i]);
+          subExists = true;
+        }
+      }
       if (!subExists) {
         // When category is encountered for the first time, create a series
       data.subdirectory.push({name: sub_name, data: [rows[i]]})

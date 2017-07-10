@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>International Development tStudies Journal Ratings</title>
+        <title>International Development Studies Journal Ratings</title>
         <meta charset="utf-8">
         <!--load jQuery-->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
@@ -85,7 +85,7 @@
                   events:{
                         click: function (event, i) {
                             location.href = 'https://samangoudarzi.github.io/mappingdkp_' +
-                            this.options.name;
+                            this.options.label;
                   }
               },
                 stickyTracking: false,
@@ -116,7 +116,7 @@
       catExists = false;
       for (j = 0; j < data.series.length; j++) {
         if (data.series[j].name == cat) {
-          Add a data point to existing series
+          //Add a data point to existing series
           data.series[j].data.push(rows[i]);
           catExists = true;
         }
@@ -128,21 +128,21 @@
     }
   }
   function subIntoSubdirectories(data) {
-    rows = data.series[0].data;
-    data.series = [];
+    rows = data.subdirectory[0].data;
+    data.subdirectory = [];
     for (i = 0; i < rows.length; i++) {
       cat = rows[i].sub;
       catExists = false;
-      for (j = 0; j < data.series.length; j++) {
-        if (data.series[j].name == cat) {
-          Add a data point to existing series
+      for (j = 0; j < data.subdirectory.length; j++) {
+        if (data.subdirectory[j].label == cat) {
+          //Add a data point to existing series
           data.series[j].data.push(rows[i]);
           catExists = true;
         }
       }
       if (!catExists) {
         // When category is encountered for the first time, create a series
-        data.series.push({name: cat, data: [rows[i]]})
+        data.subdirectory.push({label: cat, data: [rows[i]]})
       }
     }
   }

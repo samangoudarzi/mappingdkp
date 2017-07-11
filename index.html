@@ -125,7 +125,7 @@
    }
     function subIntoKeys(data) {
     rows = data.series[0].data;
-    data.series = [];
+    Options.series.keys = [];
     for (i = 0; i < rows.length; i++) {
       cat = rows[i].sub;
       catExists = false;

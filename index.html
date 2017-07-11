@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>jInternational Development Studies Journal Ratings</title>
+        <title>aInternational Development Studies Journal Ratings</title>
         <meta charset="utf-8">
         <!--load jQuery-->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
@@ -29,18 +29,12 @@
         data: {
           csv: csv,
           // data column headers (x, y, name...) must match column numbers (0, 1, 2...). Optional: category: 3
-          seriesMapping: [{x: 0, y: 1, category: 2, sub:3}],
+          seriesMapping: [{sub: 3}, {x: 0, y: 1, category: 2}],
           complete: function(data) {
             categoriesIntoSeries(data);
             changeSeriesColors(data);
             changeSeriesMarkers(data)
           }
-        },
-           tooltip: {
-            headerFormat: '<b>{series.name}</b><br/>',
-            pointFormat: '{point.y}',
-            followPointer: true,
-            hideDelay: 50
         },
         xAxis: {
     gridLineWidth: 1
@@ -61,9 +55,6 @@
         },
         plotOptions: {
             series: {
-                dataGrouping: {
-                    enabled: false
-                },
                 cursor: 'pointer',
                 point: {
                     events: {
@@ -76,6 +67,7 @@
                                 headingText: this.series.categories,
                             });
                         }
+                    }
                 },
                 marker: {
                     lineWidth: 1,
@@ -91,16 +83,27 @@
                //             this.options.sub;
                 //  }
            //   },
-         //   events: {
-           //     click: function (event) {
-             //       alert(
-               //         this.y,
-                 //   );
-                //}
-            //},
+            dataLabels: {
+                    formatter: function (e) {
+                        return this.point.sub;
+                    }
+                }
+            },
+            events: {
+                click: function (event) {
+                    alert(
+                        data.y)
+                }
+            },
                  
                 stickyTracking: false,
             }
+        },
+        tooltip: {
+            headerFormat: '<b>{series.name}</b><br/>',
+            pointFormat: '{point.y}',
+            followPointer: true,
+            hideDelay: 50
         },
         credits: {
         enabled: false,

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>International eDevelopment Studies Journal Ratings</title>
+        <title>International fDevelopment Studies Journal Ratings</title>
         <meta charset="utf-8">
         <!--load jQuery-->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
@@ -32,7 +32,6 @@
           seriesMapping: [{sub: 3, x: 0, y: 1, category: 2}],
           complete: function(data) {
             categoriesIntoSeries(data);
-            //subIntoKeys(data);
             changeSeriesColors(data);
             changeSeriesMarkers(data)
           }
@@ -79,7 +78,7 @@
                     }   
                 },
                   events:{
-                      key: data.sub,
+                      key: point.sub,
                         click: function (event, i) {
                           location.href = 'https://samangoudarzi.github.io/mappingdkp_' +
                             this.options.key;

@@ -31,7 +31,7 @@
           // data column headers (x, y, name...) must match column numbers (0, 1, 2...). Optional: category: 3
           seriesMapping: [{x: 0, y: 1, category: 2, sub: 3}],
           parsed: function (sub) {
-              var keys = sub[3]
+              var keys = sub
               },
           complete: function(data) {
             categoriesIntoSeries(data);

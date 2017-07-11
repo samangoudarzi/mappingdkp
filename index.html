@@ -40,10 +40,7 @@
             headerFormat: '<b>{series.name}</b><br/>',
             pointFormat: '{point.y}',
             followPointer: true,
-            hideDelay: 50,
-            formatter: function (e) {
-                return this.point.sub;
-            }
+            hideDelay: 50
         },
         xAxis: {
     gridLineWidth: 1
@@ -95,7 +92,7 @@
        //     events: {
          //       click: function (event) {
            //         alert(
-             //           this.point.y,
+             //            this.point.y,
                //     );
               //  }
            // },

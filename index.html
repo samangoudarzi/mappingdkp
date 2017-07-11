@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>International kDevelopment Studies Journal Ratings</title>
+        <title>International lDevelopment Studies Journal Ratings</title>
         <meta charset="utf-8">
         <!--load jQuery-->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
@@ -29,7 +29,7 @@
         data: {
           csv: csv,
           // data column headers (x, y, name...) must match column numbers (0, 1, 2...). Optional: category: 3
-          seriesMapping: [{name: 3}, {x: 0, y: 1, category: 2}],
+          seriesMapping: [{sub: 3}, {x: 0, y: 1, category: 2}],
           complete: function(data) {
             categoriesIntoSeries(data);
             changeSeriesColors(data);
@@ -63,6 +63,11 @@
             series: {
                 cursor: 'pointer',
                 point: {
+                    events:{
+                        click: function() {
+							alert(this.x) // data hora
+                        }
+                    },
                     events: {
                         click: function (e) {
                             hs.htmlExpand(null, {
@@ -89,13 +94,13 @@
                //             this.options.sub;
                 //  }
            //   },
-            events: {
-                click: function (event) {
-                    alert(
-                         this.point,
-                    );
-                }
-            },
+           // events: {
+             //   click: function (event) {
+               //     alert(
+                 //        this.point,
+                   // );
+                //}
+            //},
                  
                 stickyTracking: false,
             }

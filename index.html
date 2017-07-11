@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>International Development Studies Journal Ratings</title>
+        <title>International yDevelopment Studies Journal Ratings</title>
         <meta charset="utf-8">
         <!--load jQuery-->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
@@ -56,7 +56,6 @@
             margin: 18
         },
         plotOptions: {
-            key: [],
             series: {
                 cursor: 'pointer',
                 point: {
@@ -83,7 +82,7 @@
                   events:{
                         click: function (event, i) {
                           location.href = 'https://samangoudarzi.github.io/mappingdkp_' +
-                            this.options.{point.sub};
+                            this.options.point.sub;
                   }
               },
                 stickyTracking: false,
@@ -108,7 +107,6 @@
    function categoriesIntoSeries(data) {
     rows = data.series[0].data;
     data.series = [];
-    data.key=[];
     for (i = 0; i < rows.length; i++) {
       cat = rows[i].category;
       catExists = false;
@@ -122,21 +120,6 @@
         if (!catExists) {
         // When category is encountered for the first time, create a series
         data.series.push({name: cat, data: [rows[i]]})
-      }
-    }
-    for (i = 0; i < rows.length; i++) {
-      cat = rows[i].sub;
-      catExists = false;
-      for (j = 0; j < data.key.length; j++) {
-        if (data.key[j].key == cat) {
-          //Add a data point to existing series
-          data.key[j].data.push(rows[i]);
-          catExists = true;
-        }
-      }
-        if (!catExists) {
-        // When category is encountered for the first time, create a series
-        data.key.push({key: cat, data: [rows[i]]})
       }
     }
    }

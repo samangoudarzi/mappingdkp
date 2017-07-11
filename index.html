@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>International Development Studies Journal Ratings</title>
+        <title>International yDevelopment Studies Journal Ratings</title>
         <meta charset="utf-8">
         <!--load jQuery-->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
@@ -29,7 +29,10 @@
         data: {
           csv: csv,
           // data column headers (x, y, name...) must match column numbers (0, 1, 2...). Optional: category: 3
-          seriesMapping: [{x: 0, y: 1, category: 2, sub: 3}],
+          seriesMapping: [{x: 0, y: 1, category: 2}],
+          parsed: function (columns) {
+              var keys = columns[0]
+              },
           complete: function(data) {
             categoriesIntoSeries(data);
             //subIntoKeys(data);
@@ -56,7 +59,6 @@
         },
         plotOptions: {
             series: {
-                keys: [],
                 cursor: 'pointer',
                 point: {
                     events: {
@@ -82,7 +84,7 @@
                  // events:{
                    //     click: function (event, i) {
                      //       location.href = 'https://samangoudarzi.github.io/mappingdkp_' +
-                       //     this.options.name;
+                       //     this.options.keys;
                  // }
              // },
                 stickyTracking: false,
@@ -122,7 +124,7 @@
         data.series.push({name: cat, data: [rows[i]]})
       }
     }
-   }		
+   }
   // Customize colors of series
   function changeSeriesColors(data) {
     colors = {

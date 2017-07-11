@@ -32,7 +32,7 @@
           seriesMapping: [{x: 0, y: 1, category: 2, sub: 3}],
           complete: function(data) {
             categoriesIntoSeries(data);
-            subIntoKeys(data);
+           // subIntoKeys(data);
             changeSeriesColors(data);
             changeSeriesMarkers(data)
           }
@@ -122,28 +122,7 @@
         data.series.push({name: cat, data: [rows[i]]})
       }
     }
-   }
-    function subIntoKeys(data) {
-    rows = data.Options.series.keys;
-    Options.series.keys = [];
-    for (i = 0; i < rows.length; i++) {
-      cat = rows[i].sub;
-      catExists = false;
-      for (j = 0; j < data.Options.series.keys.length; j++) {
-        if (data.series[j].key == cat) {
-          //Add a data point to existing series
-          Options.series[j].keys.push(rows[i]);
-          catExists = true;
-        }
-      }
-        if (!catExists) {
-        // When category is encountered for the first time, create a series
-        Options.series.keys.push({key: cat, data: [rows[i]]})
-      }
-    }
-   }
-
-		
+   }		
   // Customize colors of series
   function changeSeriesColors(data) {
     colors = {

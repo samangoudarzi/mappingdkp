@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>International yDevelopment Studies Journal Ratings</title>
+        <title>International Development Studies Journal Ratings</title>
         <meta charset="utf-8">
         <!--load jQuery-->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
@@ -132,16 +132,17 @@
       for (j = 0; j < data.series.length; j++) {
         if (data.series[j].key == cat) {
           //Add a data point to existing series
-          keys.series[j].data.push(rows[i]);
+          options.series[j].keys.push(rows[i]);
           catExists = true;
         }
       }
         if (!catExists) {
         // When category is encountered for the first time, create a series
-        keys.series.push({key: cat, data: [rows[i]]})
+        options.series.keys.push({key: cat, data: [rows[i]]})
       }
     }
    }
+
 		
   // Customize colors of series
   function changeSeriesColors(data) {

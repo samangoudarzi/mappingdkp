@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>International qDevelopment Studies Journal Ratings</title>
+        <title>International rDevelopment Studies Journal Ratings</title>
         <meta charset="utf-8">
         <!--load jQuery-->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
@@ -83,10 +83,14 @@
                //             this.options.sub;
                 //  }
            //   },
-                events: {
-                    click: function () {
-                        alert(this.y);
-                    },
+            events: {
+                click: function (event) {
+                    alert(
+                        this.y + ' clicked\n' 
+                    )
+                }
+            },
+                     
                 
                 stickyTracking: false,
             }

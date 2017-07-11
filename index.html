@@ -39,7 +39,6 @@
            tooltip: {
             headerFormat: '<b>{series.name}</b><br/>',
             pointFormat: '{point.y}',
-            split: true,
             followPointer: true,
             hideDelay: 50
         },
@@ -96,7 +95,7 @@
             events: {
                 click: function (event) {
                     alert(
-                         this.x,
+                         point.y,
                     );
                 }
             },

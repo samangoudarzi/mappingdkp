@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>International yDevelopment Studies Journal Ratings</title>
+        <title>International Development Studies Journal Ratings</title>
         <meta charset="utf-8">
         <!--load jQuery-->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
@@ -31,7 +31,7 @@
           // data column headers (x, y, name...) must match column numbers (0, 1, 2...). Optional: category: 3
           seriesMapping: [{x: 0, y: 1, category: 2}],
           parsed: function (columns) {
-              var keys = columns[0]
+              var keys = columns[3]
               },
           complete: function(data) {
             categoriesIntoSeries(data);
@@ -81,12 +81,12 @@
                         }
                     }   
                 },
-                 // events:{
-                   //     click: function (event, i) {
-                     //       location.href = 'https://samangoudarzi.github.io/mappingdkp_' +
-                       //     this.options.keys;
-                 // }
-             // },
+                  events:{
+                        click: function (event, i) {
+                          location.href = 'https://samangoudarzi.github.io/mappingdkp_' +
+                            this.options.keys;
+                  }
+              },
                 stickyTracking: false,
             }
         },

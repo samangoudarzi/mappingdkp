@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>International cDevelopment Studies Journal Ratings</title>
+        <title>International dDevelopment Studies Journal Ratings</title>
         <meta charset="utf-8">
         <!--load jQuery-->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
@@ -79,9 +79,10 @@
                     }   
                 },
                   events:{
+                      key: '{point.sub}',
                         click: function (event, i) {
                           location.href = 'https://samangoudarzi.github.io/mappingdkp_' +
-                            this.options.data.sub;
+                            this.options.key;
                   }
               },
                 stickyTracking: false,

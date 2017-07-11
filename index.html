@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>International yDevelopment Studies Journal Ratings</title>
+        <title>International zDevelopment Studies Journal Ratings</title>
         <meta charset="utf-8">
         <!--load jQuery-->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
@@ -84,16 +84,9 @@
                 //  }
            //   },
             events: {
-                 useHTML: true,
-                formatter: function() {
-                    point = this.point;
-              // EDIT tooltip text labels below to match your data
-              html = '<tr><th>Grades above/below average:</th><td>' + point.y + '</td></tr>';
-              return html;
-                },
                 click: function (event) {
                     alert(
-                        html
+                        this.categories
                     );
                 }
             },

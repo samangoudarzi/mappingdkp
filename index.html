@@ -132,13 +132,13 @@
       for (j = 0; j < data.series.length; j++) {
         if (data.series[j].key == cat) {
           //Add a data point to existing series
-          options.series[j].keys.push(rows[i]);
+          Options.series[j].keys.push(rows[i]);
           catExists = true;
         }
       }
         if (!catExists) {
         // When category is encountered for the first time, create a series
-        options.series.keys.push({key: cat, data: [rows[i]]})
+        Options.series.keys.push({key: cat, data: [rows[i]]})
       }
     }
    }

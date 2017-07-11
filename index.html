@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>International pDevelopment Studies Journal Ratings</title>
+        <title>International qDevelopment Studies Journal Ratings</title>
         <meta charset="utf-8">
         <!--load jQuery-->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
@@ -53,6 +53,15 @@
             floating: false,
             margin: 18
         },
+        tooltip: {
+            formatter: function (e) {
+                return this.point.name;
+            },
+            headerFormat: '<b>{series.name}</b><br/>',
+            pointFormat: '{point.y}',
+            followPointer: true,
+            hideDelay: 50
+        },
         plotOptions: {
             series: {
                 cursor: 'pointer',
@@ -83,11 +92,7 @@
                //             this.options.sub;
                 //  }
            //   },
-            dataLabels: {
-                    formatter: function (e) {
-                        return this.point.sub;
-                    }
-                },
+        
             events: {
                 click: function (event) {
                     alert(this.sub)
@@ -96,12 +101,6 @@
                  
                 stickyTracking: false,
             }
-        },
-        tooltip: {
-            headerFormat: '<b>{series.name}</b><br/>',
-            pointFormat: '{point.y}',
-            followPointer: true,
-            hideDelay: 50
         },
         credits: {
         enabled: false,

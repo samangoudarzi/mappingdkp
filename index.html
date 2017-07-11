@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>kInternational Development Studies Journal Ratings</title>
+        <title>lInternational Development Studies Journal Ratings</title>
         <meta charset="utf-8">
         <!--load jQuery-->
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
@@ -67,9 +67,6 @@
                 cursor: 'pointer',
                 point: {
                     events: {
-                        click: function (event) {
-                        alert('{point.y}');
-                    },
                         click: function (e) {
                             hs.htmlExpand(null, {
                                 pageOrigin: {
@@ -79,6 +76,10 @@
                                 headingText: this.series.categories,
                             });
                         }
+                    },
+                    events:{
+                           click: function (event) {
+                        alert('value');
                     }
                 },
                 marker: {
